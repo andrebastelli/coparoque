@@ -34,54 +34,93 @@ export default function Home() {
         </div>
         
         <div className="container relative z-20 px-6 py-20 mx-auto">
-          <div className="max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30 text-accent font-bold text-sm tracking-widest uppercase mb-8">
-                <Trophy className="w-4 h-4" /> Copa do Mundo 2026
-              </div>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold leading-[1.1] tracking-tight mb-8">
-                O BRASIL <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-500">ESTÁ PRONTO.</span><br/>
-                E VOCÊ?
-              </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-12 font-medium leading-relaxed">
-                A maior oportunidade imobiliária da década. Alugue, invista ou compre propriedades premium durante o evento mais esperado do planeta.
-              </p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="flex flex-wrap items-center gap-6"
-            >
-              <Button asChild size="lg" className="h-14 px-8 text-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90 rounded-full shadow-[0_0_40px_rgba(251,191,36,0.3)] transition-all hover:shadow-[0_0_60px_rgba(251,191,36,0.5)] hover:scale-105">
-                <a href="#imoveis">
-                  Ver Propriedades Exclusivas <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="h-14 px-8 text-lg font-bold border-white/20 hover:bg-white/5 rounded-full backdrop-blur-sm">
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="mr-2 w-5 h-5 text-green-500" /> WhatsApp
-                </a>
-              </Button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.6 }}
-              className="mt-20 pt-10 border-t border-white/10"
-            >
-              <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-6">Contagem Regressiva para a Glória</p>
-              <Countdown />
-            </motion.div>
-          </div>
+  <div className="grid lg:grid-cols-2 gap-12 items-center">
+    
+    {/* LEFT - TEXTO */}
+    <div className="max-w-2xl">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+      >
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30 text-accent font-bold text-sm tracking-widest uppercase mb-8">
+          <Trophy className="w-4 h-4" /> Copa do Mundo 2026
         </div>
+
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold leading-[1.1] tracking-tight mb-8">
+          O BRASIL <br/>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-500">
+            ESTÁ PRONTO.
+          </span><br/>
+          E VOCÊ?
+        </h1>
+
+        <p className="text-xl md:text-2xl text-muted-foreground mb-12 font-medium leading-relaxed">
+          A maior oportunidade imobiliária da década. Alugue, invista ou compre propriedades premium durante o evento mais esperado do planeta.
+        </p>
+      </motion.div>
+
+      {/* 🔥 BOTÕES (AQUI) */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        className="flex flex-wrap items-center gap-6"
+      >
+        <Button 
+          asChild 
+          size="lg" 
+          className="h-14 px-8 text-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90 rounded-full shadow-[0_0_40px_rgba(251,191,36,0.3)] transition-all hover:shadow-[0_0_60px_rgba(251,191,36,0.5)] hover:scale-105"
+        >
+          <a href="#imoveis">
+            Ver Propriedades Exclusivas <ArrowRight className="ml-2 w-5 h-5" />
+          </a>
+        </Button>
+
+        <Button 
+          asChild 
+          size="lg" 
+          variant="outline" 
+          className="h-14 px-8 text-lg font-bold border-white/20 hover:bg-white/5 rounded-full backdrop-blur-sm"
+        >
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+            <MessageCircle className="mr-2 w-5 h-5 text-green-500" /> WhatsApp
+          </a>
+        </Button>
+      </motion.div>
+
+      {/* CONTAGEM */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.6 }}
+        className="mt-20 pt-10 border-t border-white/10"
+      >
+        <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-6">
+          Contagem Regressiva para a Glória
+        </p>
+        <Countdown />
+      </motion.div>
+    </div>
+
+    {/* RIGHT - IMAGEM */}
+    <motion.div
+      initial={{ opacity: 0, x: 60 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8, delay: 0.3 }}
+      className="relative hidden lg:block"
+    >
+      <img
+        src="/hero.png"
+        alt="Jogador Brasil"
+        className="w-full max-w-lg mx-auto drop-shadow-[0_0_60px_rgba(251,191,36,0.35)]"
+      />
+
+      <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent blur-3xl -z-10" />
+    </motion.div>
+
+  </div>
+</div>
       </section>
 
       {/* Stats / The Opportunity */}
