@@ -110,11 +110,14 @@ export default function Home() {
       transition={{ duration: 0.8, delay: 0.3 }}
       className="relative hidden lg:block"
     >
-      <img
-        src="/hero.png"
-        alt="Jogador Brasil"
-        className="w-full max-w-lg mx-auto drop-shadow-[0_0_60px_rgba(251,191,36,0.35)]"
-      />
+      <motion.img
+  src="/hero.png"
+  alt="Jogador Brasil"
+  initial={{ opacity: 0, x: 60, rotate: -6 }}
+  animate={{ opacity: 1, x: 0, rotate: 6 }}
+  transition={{ duration: 0.8, delay: 0.3 }}
+  className="w-full max-w-lg mx-auto drop-shadow-[0_0_60px_rgba(251,191,36,0.35)]"
+/>
 
       <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent blur-3xl -z-10" />
     </motion.div>
